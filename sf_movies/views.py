@@ -1,7 +1,7 @@
 from django.http import HttpResponse
+from django.template.response import TemplateResponse
 import datetime
 
 def home(request):
     now = datetime.datetime.now()
-    html = "<html><body>It is now %s.</body></html>" % now
-    return HttpResponse(html)
+    return TemplateResponse(request, 'index.html')
