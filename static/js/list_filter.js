@@ -20,8 +20,6 @@ var markers = []
 var onselect_handler = function(){
     var locations = $("#basics").getSelectedItemData().locations;
     console.log(locations)
-    locations.pop()
-    console.log(locations)
     requests = []
     if (locations[0]){
         var requests = locations.map(function(location_name){
