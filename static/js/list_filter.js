@@ -31,8 +31,13 @@ var onselect_handler = function(){
         {
             if (status == google.maps.places.PlacesServiceStatus.OK) 
             {
-                console.log(results[0].geometry.location.lat())
-                console.log(results[0].geometry.location.lang())
+                var lat = (results[0].geometry.location.lat())
+                var lng = (results[0].geometry.location.lng())
+                var marker = new google.maps.Marker({
+                    position: {lat: lat, lng:lng}
+                    title: value
+                });
+                marker.setMap(map);
             };
 
         })
