@@ -20,7 +20,7 @@ var onselect_handler = function(){
     value = value[0]
     console.log(value)
     var request = {
-        location:"37.773972,-122.431297",
+        location:{lat:37.773972, lng: -122.431297},
         radius:50000,
         name: value+ " San Francisco"
     }
