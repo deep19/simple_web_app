@@ -11,7 +11,7 @@ var options = {
 		onKeyEnterEvent: function() {
 			var value = $("#basics").getSelectedItemData().locations;
             console.log(value)
-		}
+		},
 
         requestDelay: 500
 
