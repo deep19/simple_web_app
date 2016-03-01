@@ -47,6 +47,7 @@ var onselect_handler = function(){
                         title: request.name
                     });
                     markers.push(marker);
+                    console.log(markers)
                 };
 
             })
