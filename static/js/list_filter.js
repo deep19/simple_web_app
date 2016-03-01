@@ -23,7 +23,7 @@ var onselect_handler = function(){
     requests = []
     if (locations[0]){
         var requests = locations.map(function(location_name){
-            var request = {
+            return  {
                 location:{lat:37.773972, lng: -122.431297},
                 radius:50000,
                 name: location_name + " San Francisco"
