@@ -31,7 +31,8 @@ var onselect_handler = function(){
         {
             if (status == google.maps.places.PlacesServiceStatus.OK) 
             {
-                console.log(results)
+                console.log(results[0].geometry.location.lat())
+                console.log(results[0].geometry.location.lang())
             };
 
         })
