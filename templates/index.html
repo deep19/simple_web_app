@@ -5,7 +5,16 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
         <script src = "{% static 'js/jquery.easy-autocomplete.min.js' %}"></script>
         <script src = "{% static 'js/list_filter.js' %}"></script>
-        <script src = "{% static 'js/gmaps.js' %}"></script>
+        <!--<script src = "{% static 'js/gmaps.js' %}"></script>-->
+        <script>
+            var map;
+            var initMap = function() {
+              map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: -34.397, lng: 150.644},
+                zoom: 8
+              });
+            }
+        </script>
         <link rel="stylesheet" type="text/css" href= "{% static 'css/easy-autocomplete.min.css' %}">
         <link rel="stylesheet" type="text/css" href= "{% static 'css/easy-autocomplete.themes.min.css' %}">
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1LmAPLKwVX9wLtB9sAoUrR6MTgCbAqoU&callback=initMap"></script>
