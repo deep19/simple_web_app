@@ -44,7 +44,7 @@ var onselect_handler = function(){
                     var lng = (results[0].geometry.location.lng())
                     var marker = new google.maps.Marker({
                         position: {lat: lat, lng:lng},
-                        title: value
+                        title: request.name
                     });
                     markers.push(marker);
                 };
