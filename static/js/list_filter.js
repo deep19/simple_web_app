@@ -21,6 +21,8 @@ var onselect_handler = function(){
     var locations = $("#basics").getSelectedItemData().locations;
     console.log(locations)
     locations.pop()
+    console.log(locations)
+    requests = []
     if (locations[0]){
         var requests = locations.map(function(location_name){
             var request = {
@@ -53,7 +55,9 @@ var onselect_handler = function(){
     markers.forEach(function(marker){
         marker.setMap(map)
     })
-    map.setZoom(12)
+    if (markers.length){
+        map.setZoom(12)
+    }
 }
 
 var remove_markers = function(markers){
