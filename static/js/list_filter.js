@@ -19,10 +19,22 @@ var onselect_handler = function(){
     var value = $("#basics").getSelectedItemData().locations;
     value = value[0]
     console.log(value)
-    var google_map_radar_api_url = "https://maps.googleapis.com/maps/api/place/radarsearch/json?key=AIzaSyD1LmAPLKwVX9wLtB9sAoUrR6MTgCbAqoU&location=37.773972,-122.431297&radius=50000&name="+value
-    $.getJSON( google_map_radar_api_url, function( data ) {
-        console.log(data)
-    });
+    var request = {
+        location:37.773972,-122.431297
+        radius:50000
+        name: value+ " San Francisco"
+    }
+
+    var service = new google.maps.places.PlacesService(map);
+    service.radarSearch(request, 
+        function(results, status)
+        {
+            if (status == google.maps.places.PlacesServiceStatus.OK) 
+            {
+                console.log(results)
+            };
+
+        })
 }
 
 
