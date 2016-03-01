@@ -53,9 +53,11 @@ var onselect_handler = function(){
             })
     })
     markers.forEach(function(marker){
+        console.log(marker)
         marker.setMap(map)
     })
     if (markers.length){
+        console.log("Zoom")
         map.setZoom(12)
     }
 }
