@@ -13,5 +13,7 @@ var options = {
             console.log(value)
 		}
 
+        requestDelay: 500
+
 	}
 };
