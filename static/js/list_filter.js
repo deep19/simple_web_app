@@ -51,11 +51,14 @@ var onselect_handler = function(){
                 };
 
             })
-    })
+    });
+    debugger;
+
     markers.forEach(function(marker){
         console.log(marker)
         marker.setMap(map)
-    })
+    });
+    
     if (markers.length){
         console.log("Zoom")
         map.setZoom(12)
