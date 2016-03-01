@@ -47,22 +47,13 @@ var onselect_handler = function(){
                         title: request.name
                     });
                     markers.push(marker);
+                    marker.setMap(map)
+                    map.setZoom(12)
                     console.log(markers)
                 };
 
             })
     });
-    debugger;
-
-    markers.forEach(function(marker){
-        console.log(marker)
-        marker.setMap(map)
-    });
-    
-    if (markers.length){
-        console.log("Zoom")
-        map.setZoom(12)
-    }
 }
 
 var remove_markers = function(markers){
