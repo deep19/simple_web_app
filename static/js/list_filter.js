@@ -33,6 +33,7 @@ var onselect_handler = function(){
     remove_markers(markers)
     markers = []
     var service = new google.maps.places.PlacesService(map);
+    console.log(requests)
     requests.forEach(function(request){
         service.radarSearch(request, 
             function(results, status)
