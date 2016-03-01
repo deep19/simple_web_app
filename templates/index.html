@@ -1,18 +1,23 @@
+{% load staticfiles %}
+
 <html>
     <head>
-        {% load staticfiles %}
-        <script src="//cdnjs.cloudflare.com/ajax/libs/mithril/0.2.2-rc.1/mithril.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+        <script src = "{% static 'js/jquery.easy-autocomplete.min.js' %}"></script>
+        <script src = "{% static 'js/list_filter.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href= "{% static 'css/easy-autocomplete.min.css' %}">
+        <link rel="stylesheet" type="text/css" href= "{% static 'css/easy-autocomplete.themes.min.css' %}">
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-        <script src= "{% static 'js/list_filter.js' %}"></script>
         <script>
-            window.onload = function(){m.module(document.getElementById("list_filter"), things)}
+            window.onload = function(){
+                $("#basics").easyAutocomplete(options);
+            }
         </script>
+
     </head>
     <body>
         Hello from the other side
-        <div id="list_filter">
+        <input id="basics" />
         </div>
     </body>
 
