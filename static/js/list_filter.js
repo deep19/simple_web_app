@@ -32,6 +32,8 @@ var onselect_handler = function(){
     }
     remove_markers(markers)
     markers = []
+    var center_sum = [0,0]
+    var num_markers = 0
     var service = new google.maps.places.PlacesService(map);
     console.log(requests)
     requests.forEach(function(request){
@@ -50,6 +52,14 @@ var onselect_handler = function(){
                     marker.setMap(map)
                     map.setZoom(12)
                     console.log(markers)
+                    center_sum[0] += lat
+                    center_sum[1] += lng
+                    num_markers += 1
+                    if (num_markers){
+                        mean_lat = center_sum[0]/num_markers
+                        mean_lng = center_sum[1]/num_markers
+                        map.setCenter({lat: mean_lat, lng: mean_lng})
+                    }
                 };
 
             })
