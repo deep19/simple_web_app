@@ -18,7 +18,7 @@ var markers = []
 
 
 var onselect_handler = function(){
-    var locations = $("#basics").getSelectedItemData().locations;
+    var locations = $("#search_movie").getSelectedItemData().locations;
     console.log(locations)
     requests = []
     if (locations[0]){
