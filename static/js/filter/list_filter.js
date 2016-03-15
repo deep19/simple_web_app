@@ -6,13 +6,16 @@ filter.config.city_name = "San Francisco"
 filter.config.final_zoom_level = 12
 filter.config.movie_api_url = "/api/get_movie_data/?name="
 filter.config.name_field = "name"
+filter.config.location_field = "location"
 filter.config.delay_time = 500          // delay(in ms) in ajax request as user types
+filter.config.search_element_id = "search_movie"
 
+
+// Returns the easyautocomplete options with event handlers set
 
 filter.set_filter = function(){
-    var markers = []                        // Store the marker objects of locations on map
+    var markers = []                                               // Store the marker objects of locations on map
     var service = new google.maps.places.PlacesService(gmaps.map); // The service object of google maps api to fetch coordinates given name
-
 
     var onselect_handler = function(){
         var requests = []                       // Stores the request objects for getting coordinates from name
@@ -48,6 +51,13 @@ filter.set_filter = function(){
 
                 }
             }
+            
+            /*
+             * Remove previously set markers and process
+             * each request objects to fetch coordinates
+             * and set markers on the map
+             */
+            
             remove_markers()
             requests.forEach(function(request){
                 service.radarSearch(request, 
@@ -65,13 +75,24 @@ filter.set_filter = function(){
                     })
             });
         }
-        var locations = $("#search_movie").getSelectedItemData().locations;
+
+        /*
+         * Fetch the location list from the DOM element and create coordinate request
+         * objects for each location
+         * Fetch the locations from request objects and show them on map
+        */
+        
+        var locations = $("#"+filter.config.search_element_id).getSelectedItemData()[filter.config.location_field];
         if (locations[0]){                                         // API gives first object of list as null if no locations are there
             requests = create_coordinate_fetch_request(locations, filter.config.center, filter.config.city_name, filter.config.radius)  
+            fetch_locations_and_show_on_map(requests)
         }
-        fetch_locations_and_show_on_map(requests)
+        else{
+            alert("No screening for this movie :(")
+        }
     }
-
+   
+    // Option object for easyautocomplete with event handlers
     return {
         url: function(query_string) {
             return filter.config.movie_api_url + query_string;

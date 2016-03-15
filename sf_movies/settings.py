@@ -138,3 +138,6 @@ STATICFILES_DIRS = [
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+MOVIE_DATA_FILE_PATH = os.path.join(BASE_DIR, 'data/row2.json')
+
