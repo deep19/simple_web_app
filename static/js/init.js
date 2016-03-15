@@ -2,6 +2,6 @@
 // to be done here
 
 window.onload = function(){
-    $("#search_movie").easyAutocomplete(options);
+    $("#search_movie").easyAutocomplete(filter.set_filter());
 }
 
