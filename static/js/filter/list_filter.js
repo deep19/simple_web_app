@@ -6,7 +6,7 @@ filter.config.city_name = "San Francisco"
 filter.config.final_zoom_level = 12
 filter.config.movie_api_url = "/api/get_movie_data/?name="
 filter.config.name_field = "name"
-filter.config.location_field = "location"
+filter.config.location_field = "locations"
 filter.config.delay_time = 500          // delay(in ms) in ajax request as user types
 filter.config.search_element_id = "search_movie"
 
