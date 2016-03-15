@@ -34,7 +34,7 @@ filter.set_filter = function(){
                })
                markers = []
             }
-            var show_markers = function(marker, map, zoom_level){
+            var show_markers = function(marker, lat, lng, map, zoom_level){
                 markers.push(marker);
                 marker.setMap(map)
                 map.setZoom(zoom_level)
@@ -60,7 +60,7 @@ filter.set_filter = function(){
                                 position: {lat: lat, lng:lng},
                                 title: request.name
                             });
-                            show_markers(marker, gmaps.map, filter.config.final_zoom_level)
+                            show_markers(marker, lat, lng, gmaps.map, filter.config.final_zoom_level)
                         };
                     })
             });
